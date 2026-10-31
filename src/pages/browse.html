@@ -1,0 +1,63 @@
+<!--title: Static caravans and lodges for sale-->
+<!--description: Search static caravans and holiday lodges for sale across the UK. Filter by region, price, bedrooms, pets and season length.-->
+<!--nav: browse-->
+<div class="wrap browse">
+  <aside class="filters" id="filters" aria-label="Filter homes">
+    <h2>Filter homes</h2>
+    <form id="filters-form">
+      <div class="field">
+        <label for="q">Keyword</label>
+        <input type="search" id="q" name="q" placeholder="Park, town or make">
+      </div>
+      <div class="field">
+        <span class="label" id="type-label">Type</span>
+        <div class="seg" role="radiogroup" aria-labelledby="type-label">
+          <input type="radio" id="t-any" name="type" value="any" checked><label for="t-any">Both</label>
+          <input type="radio" id="t-car" name="type" value="caravan"><label for="t-car">Caravans</label>
+          <input type="radio" id="t-lod" name="type" value="lodge"><label for="t-lod">Lodges</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="region">Region</label>
+        <select id="region" name="region" data-regions><option value="">Anywhere in the UK</option></select>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="min">Min £</label><input type="number" id="min" name="min" min="0" step="1000" inputmode="numeric"></div>
+        <div class="field"><label for="max">Max £</label><input type="number" id="max" name="max" min="0" step="1000" inputmode="numeric"></div>
+      </div>
+      <div class="field">
+        <label for="bedrooms">Bedrooms</label>
+        <select id="bedrooms" name="bedrooms">
+          <option value="">Any</option><option value="1">1+</option><option value="2">2+</option><option value="3">3+</option><option value="4">4+</option>
+        </select>
+      </div>
+      <div class="field">
+        <span class="label" id="seller-label">Seller</span>
+        <div class="seg" role="radiogroup" aria-labelledby="seller-label">
+          <input type="radio" id="s-any" name="seller" value="any" checked><label for="s-any">All</label>
+          <input type="radio" id="s-pri" name="seller" value="private"><label for="s-pri">Private</label>
+          <input type="radio" id="s-tra" name="seller" value="trade"><label for="s-tra">Trade</label>
+        </div>
+      </div>
+      <label class="check"><input type="checkbox" name="pets" value="1"> Pets allowed</label>
+      <label class="check"><input type="checkbox" name="twelve" value="1"> 12-month season</label>
+      <label class="check"><input type="checkbox" name="sold" value="1"> Include sold homes</label>
+      <button class="btn btn--quiet btn--wide" type="button" id="clear-filters">Clear filters</button>
+    </form>
+  </aside>
+  <section aria-labelledby="result-count">
+    <h1 class="visually-hidden">Holiday homes for sale</h1>
+    <div class="results-bar">
+      <p id="result-count" aria-live="polite">Loading…</p>
+      <button class="btn btn--quiet filters-toggle" type="button" aria-controls="filters" aria-expanded="false">Filters</button>
+      <label class="visually-hidden" for="sort">Sort by</label>
+      <select id="sort">
+        <option value="newest">Newest first</option>
+        <option value="price-asc">Price, lowest first</option>
+        <option value="price-desc">Price, highest first</option>
+        <option value="year-desc">Newest model first</option>
+      </select>
+    </div>
+    <div class="grid" id="results"></div>
+  </section>
+</div>

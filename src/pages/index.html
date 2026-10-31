@@ -1,0 +1,147 @@
+<!--description: Static caravans and holiday lodges for sale across the UK, mostly from private owners. Advertise your holiday home free. Trade listings £5.-->
+<!--nav: home-->
+<section class="hero">
+  <div class="wrap hero__inner">
+    <div>
+      <h1>Holiday homes by the sea, sold by the people who own them</h1>
+      <p class="hero__lede">Static caravans and lodges across the UK. Private sellers advertise free. Dealers and parks list for £5 a home.</p>
+      <form class="search" action="/browse/" method="get" role="search" aria-label="Search holiday homes">
+        <div>
+          <label for="h-type">Looking for</label>
+          <select id="h-type" name="type">
+            <option value="any">Caravans and lodges</option>
+            <option value="caravan">Static caravans</option>
+            <option value="lodge">Lodges</option>
+          </select>
+        </div>
+        <div>
+          <label for="h-region">Where</label>
+          <select id="h-region" name="region" data-regions>
+            <option value="">Anywhere in the UK</option>
+          </select>
+        </div>
+        <div>
+          <label for="h-max">Up to</label>
+          <select id="h-max" name="max">
+            <option value="">Any price</option>
+            <option value="15000">£15,000</option>
+            <option value="25000">£25,000</option>
+            <option value="40000">£40,000</option>
+            <option value="60000">£60,000</option>
+            <option value="100000">£100,000</option>
+            <option value="150000">£150,000</option>
+          </select>
+        </div>
+        <button class="btn" type="submit">Find homes</button>
+      </form>
+    </div>
+    <div class="hero__art" aria-hidden="true">
+      <svg viewBox="0 0 560 330" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="440" cy="78" r="42" fill="#F3C34F"/>
+        <path d="M0 210c60-40 130-70 210-62s120 30 190 20 120-32 160-20v182H0z" fill="#B9D3A0"/>
+        <path d="M0 236c80-24 150-34 240-22s160 22 320-8v124H0z" fill="#8FB070"/>
+        <!-- lodge -->
+        <g transform="translate(300 150)">
+          <path d="M0 50 L60 8 L120 50" fill="#19324A"/>
+          <rect x="10" y="46" width="100" height="56" fill="#9C6B43"/>
+          <rect x="10" y="46" width="100" height="56" fill="url(#boards)"/>
+          <rect x="26" y="60" width="26" height="28" fill="#EAF2F5"/>
+          <rect x="68" y="60" width="26" height="42" fill="#EAF2F5"/>
+          <path d="M60 18 L60 46" stroke="#EAF2F5" stroke-width="2" opacity=".0"/>
+          <rect x="0" y="100" width="130" height="7" fill="#6E4A2C"/>
+        </g>
+        <!-- caravans -->
+        <g transform="translate(70 172)">
+          <rect width="150" height="52" rx="8" fill="#FFFFFF" stroke="#19324A" stroke-width="3"/>
+          <rect y="30" width="150" height="7" fill="#1E6E8A"/>
+          <rect x="14" y="10" width="34" height="16" rx="3" fill="#7FC4D8"/>
+          <rect x="62" y="10" width="34" height="16" rx="3" fill="#7FC4D8"/>
+          <rect x="112" y="10" width="22" height="38" rx="2" fill="#D6E6EC" stroke="#19324A" stroke-width="2"/>
+          <rect x="-4" y="52" width="158" height="6" fill="#6E4A2C"/>
+        </g>
+        <g transform="translate(16 205) scale(.72)">
+          <rect width="150" height="52" rx="8" fill="#FFFFFF" stroke="#19324A" stroke-width="3"/>
+          <rect y="30" width="150" height="7" fill="#5F7F3A"/>
+          <rect x="14" y="10" width="34" height="16" rx="3" fill="#7FC4D8"/>
+          <rect x="62" y="10" width="34" height="16" rx="3" fill="#7FC4D8"/>
+          <rect x="112" y="10" width="22" height="38" rx="2" fill="#D6E6EC" stroke="#19324A" stroke-width="2"/>
+        </g>
+        <!-- marram grass -->
+        <g stroke="#5F7F3A" stroke-width="3" stroke-linecap="round" fill="none">
+          <path d="M250 262c-4-18-2-30 6-44"/><path d="M256 262c0-16 6-26 16-34"/><path d="M262 262c2-12 10-20 20-24"/>
+          <path d="M470 270c-4-18-2-30 6-44"/><path d="M476 270c0-16 6-26 16-34"/>
+        </g>
+        <!-- sea -->
+        <g class="hero__waves">
+          <path d="M-20 286c40-10 70-10 110 0s70 10 110 0 70-10 110 0 70 10 110 0 70-10 110 0 70 10 110 0v60H-20z" fill="#7FC4D8"/>
+          <path d="M-20 304c40-10 70-10 110 0s70 10 110 0 70-10 110 0 70 10 110 0 70-10 110 0 70 10 110 0v40H-20z" fill="#1E6E8A"/>
+        </g>
+        <defs>
+          <pattern id="boards" width="8" height="8" patternUnits="userSpaceOnUse"><path d="M0 7.5h8" stroke="#7A5233" stroke-width="1"/></pattern>
+        </defs>
+      </svg>
+    </div>
+  </div>
+  <svg class="hero__shore" viewBox="0 0 1440 70" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40c160-30 320-30 480 0s320 30 480 0 320-30 480 0v30H0z" fill="currentColor"/></svg>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section__head">
+      <h2>Just listed</h2>
+      <a href="/browse/">See all homes for sale</a>
+    </div>
+    <div class="grid" id="featured" aria-live="polite"><p>Loading homes…</p></div>
+  </div>
+</section>
+
+<section class="section section--sky">
+  <div class="wrap">
+    <h2>Selling your holiday home</h2>
+    <p class="prose">Most of the homes here are sold privately, owner to buyer. No agent, no commission, and no charge to advertise.</p>
+    <ol class="steps">
+      <li><h3>Describe your home</h3><p>Fill in the details buyers ask about first: park, site fees, season length, year and size. Add up to six photos.</p></li>
+      <li><h3>We check and publish</h3><p>Every advert is read by a person before it goes live, usually within one working day.</p></li>
+      <li><h3>Buyers contact you</h3><p>We pass every buyer’s enquiry to your email, so your address isn’t shown publicly. Tell us when it’s sold and we’ll mark it as sold.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="offer offer--private">
+      <h2>Private sellers</h2>
+      <p class="offer__price">Free</p>
+      <ul>
+        <li>One home, one advert, no fees at all</li>
+        <li>Up to six photos</li>
+        <li>Stays live until you sell</li>
+      </ul>
+      <a class="btn" href="/sell/">Place a free advert</a>
+    </div>
+    <div class="offer offer--trade">
+      <h2>Dealers and parks</h2>
+      <p class="offer__price">£5 <small>per listing</small></p>
+      <ul>
+        <li>Your business name on every advert</li>
+        <li>List as many homes as you like</li>
+        <li>No contract or monthly fee</li>
+      </ul>
+      <a class="btn btn--sun" href="/trade/">List as trade</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--sky">
+  <div class="wrap">
+    <div class="section__head"><h2>Browse by region</h2></div>
+    <ul class="regions" id="region-list"></ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap prose">
+    <h2>Before you buy</h2>
+    <p>A holiday home comes with a pitch, and the pitch comes with an agreement with the park. Ask every seller for the current site fees, how many years the park will let the home stay, and whether the sale includes transfer of the pitch. Our <a href="/guide/">buyer’s guide</a> lists the questions worth asking, and <a href="/safety/">buying safely</a> covers how to avoid scams.</p>
+  </div>
+</section>

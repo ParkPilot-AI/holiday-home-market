@@ -1,0 +1,63 @@
+# Decap CMS — manage listings at /admin/
+# Signs in with GitHub through Netlify's OAuth provider (see README → "Turn on the admin").
+backend:
+  name: github
+  repo: ParkPilot-AI/holiday-home-market
+  branch: main
+  commit_messages:
+    update: "Update listings"
+
+site_url: https://holidayhomemarket.netlify.app
+locale: en
+media_folder: static/assets/uploads
+public_folder: /assets/uploads
+
+collections:
+  - name: data
+    label: Listings
+    files:
+      - name: listings
+        label: All listings
+        file: static/data/listings.json
+        format: json
+        fields:
+          - name: listings
+            label: Listings
+            label_singular: Listing
+            widget: list
+            summary: "{{fields.id}} · {{fields.status}} · £{{fields.price}} · {{fields.title}}"
+            add_to_top: true
+            fields:
+              - { name: id, label: "Reference (e.g. HHM1009, must be unique)", widget: string, pattern: ['^HHM\d+$', "Use HHM followed by numbers"] }
+              - { name: status, label: Status, widget: select, options: ["live", "sold", "draft"], default: "draft", hint: "Draft adverts are not published." }
+              - { name: title, label: Headline, widget: string }
+              - { name: type, label: Type, widget: select, options: [{ label: "Static caravan", value: "caravan" }, { label: "Lodge", value: "lodge" }] }
+              - { name: seller, label: Seller, widget: select, options: [{ label: "Private", value: "private" }, { label: "Trade", value: "trade" }], default: "private" }
+              - { name: tradeName, label: "Trade business name", widget: string, required: false }
+              - { name: price, label: "Price (£)", widget: number, value_type: int }
+              - { name: priceOnApplication, label: "Show 'Price on application'", widget: boolean, required: false, default: false }
+              - { name: featured, label: "Feature on home page", widget: boolean, required: false, default: false }
+              - { name: example, label: "Example listing (shows an 'example' notice)", widget: boolean, required: false, default: false }
+              - { name: year, label: Year, widget: number, value_type: int }
+              - { name: make, label: Make, widget: string }
+              - { name: model, label: Model, widget: string, required: false }
+              - { name: length, label: "Length (ft)", widget: number, value_type: int, required: false }
+              - { name: width, label: "Width (ft)", widget: number, value_type: int, required: false }
+              - { name: bedrooms, label: Bedrooms, widget: number, value_type: int }
+              - { name: berths, label: Sleeps, widget: number, value_type: int }
+              - { name: park, label: "Park name", widget: string }
+              - { name: town, label: "Nearest town", widget: string }
+              - { name: county, label: County, widget: string }
+              - name: region
+                label: Region
+                widget: select
+                options: ["Cornwall & Devon", "Dorset & Hampshire", "Kent & Sussex", "Norfolk & Suffolk", "Lincolnshire Coast", "Yorkshire Coast", "Northumberland", "Lake District & Cumbria", "North Wales", "South & West Wales", "Scotland", "Inland England"]
+              - { name: siteFees, label: "Site fees per year (£)", widget: number, value_type: int, required: false }
+              - { name: seasonMonths, label: "Season length (months)", widget: number, value_type: float, required: false }
+              - { name: pets, label: "Pets allowed", widget: boolean, required: false }
+              - { name: sited, label: "On a pitch, buyer can stay", widget: boolean, required: false, default: true }
+              - { name: features, label: Features, widget: list, required: false }
+              - { name: description, label: Description, widget: text }
+              - { name: images, label: "Photos (first is the main photo)", widget: list, field: { name: image, label: Photo, widget: image } }
+              - { name: phone, label: "Seller phone (only if they asked to show it)", widget: string, required: false }
+              - { name: dateListed, label: "Date listed", widget: datetime, format: "YYYY-MM-DD", date_format: "D MMM YYYY", time_format: false }

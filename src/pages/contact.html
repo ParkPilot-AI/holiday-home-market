@@ -1,0 +1,42 @@
+<!--title: Contact us-->
+<!--description: Get in touch with Holiday Home Market about an advert, trade listings or reporting a problem.-->
+<!--nav: contact-->
+<div class="page-head">
+  <div class="wrap">
+    <h1>Contact us</h1>
+    <p>We reply to every message, usually within one working day.</p>
+  </div>
+</div>
+<div class="wrap form-layout">
+  <form name="contact" method="POST" data-netlify="true" netlify-honeypot="company_website" data-netlify-ajax data-next="/message-sent/">
+    <input type="hidden" name="form-name" value="contact">
+    <input type="hidden" name="reference">
+    <p class="hidden-field"><label>Leave this empty <input name="company_website"></label></p>
+    <div class="field">
+      <label for="topic">What’s it about?</label>
+      <select id="topic" name="topic" required>
+        <option value="">Choose one</option>
+        <option>Change or remove my advert</option>
+        <option>Mark my home as sold</option>
+        <option>Trade listings</option>
+        <option>Report a suspicious advert</option>
+        <option>Something else</option>
+      </select>
+    </div>
+    <div class="field-row">
+      <div class="field"><label for="c-name">Your name</label><input id="c-name" name="name" type="text" required autocomplete="name"></div>
+      <div class="field"><label for="c-email">Email</label><input id="c-email" name="email" type="email" required autocomplete="email"></div>
+    </div>
+    <div class="field"><label for="c-ref">Advert reference <span class="hint">If it’s about a specific advert</span></label><input id="c-ref" name="advert_ref" type="text"></div>
+    <div class="field"><label for="c-msg">Message</label><textarea id="c-msg" name="message" required></textarea></div>
+    <button class="btn" type="submit">Send message</button>
+    <p class="form-status form-error" role="alert"></p>
+  </form>
+  <aside>
+    <div class="panel">
+      <h2 class="listing__title">Email</h2>
+      <p><a href="mailto:hello@holidayhomemarket.co.uk">hello@holidayhomemarket.co.uk</a></p>
+      <p>We don’t take phone calls, so there’s a written record of every change to an advert.</p>
+    </div>
+  </aside>
+</div>

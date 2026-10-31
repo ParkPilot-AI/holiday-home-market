@@ -1,0 +1,141 @@
+<!--title: Place a free advert for your static caravan or lodge-->
+<!--description: Advertise your static caravan or holiday lodge free. Private sellers pay nothing to list, and adverts stay live until the home is sold.-->
+<!--nav: sell-->
+<div class="page-head">
+  <div class="wrap">
+    <h1>Place a free advert</h1>
+    <p>For private owners selling their own holiday home. It takes about ten minutes and costs nothing. Dealers and parks, please use <a href="/trade/">trade advertising</a>.</p>
+  </div>
+</div>
+<div class="wrap form-layout">
+  <form name="private-advert" method="POST" data-netlify="true" netlify-honeypot="company_website" enctype="multipart/form-data" data-netlify-ajax data-next="/thanks/">
+    <input type="hidden" name="form-name" value="private-advert">
+    <input type="hidden" name="reference">
+    <p class="hidden-field"><label>Leave this empty <input name="company_website"></label></p>
+
+    <fieldset>
+      <legend>The home</legend>
+      <div class="field">
+        <span class="label">Is it a caravan or a lodge?</span>
+        <label class="check"><input type="radio" name="type" value="Static caravan" required> Static caravan</label>
+        <label class="check"><input type="radio" name="type" value="Lodge"> Lodge</label>
+      </div>
+      <div class="field">
+        <label for="title">Advert headline</label>
+        <span class="hint" id="title-hint">For example: “2019 two-bed caravan with sea views and decking”</span>
+        <input id="title" name="title" type="text" maxlength="80" required aria-describedby="title-hint">
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="make">Make</label><input id="make" name="make" type="text" required></div>
+        <div class="field"><label for="model">Model</label><input id="model" name="model" type="text"></div>
+        <div class="field"><label for="year">Year</label><input id="year" name="year" type="number" min="1970" data-year-max required inputmode="numeric"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="length">Length (ft)</label><input id="length" name="length_ft" type="number" min="10" max="70" inputmode="numeric"></div>
+        <div class="field"><label for="width">Width (ft)</label><input id="width" name="width_ft" type="number" min="8" max="30" inputmode="numeric"></div>
+        <div class="field"><label for="bedrooms">Bedrooms</label><input id="bedrooms" name="bedrooms" type="number" min="1" max="6" required inputmode="numeric"></div>
+        <div class="field"><label for="berths">Sleeps</label><input id="berths" name="sleeps" type="number" min="1" max="12" required inputmode="numeric"></div>
+      </div>
+      <div class="field">
+        <span class="label">Features</span>
+        <div class="checks">
+          <label class="check"><input type="checkbox" name="features[]" value="Central heating"> Central heating</label>
+          <label class="check"><input type="checkbox" name="features[]" value="Double glazing"> Double glazing</label>
+          <label class="check"><input type="checkbox" name="features[]" value="Decking"> Decking</label>
+          <label class="check"><input type="checkbox" name="features[]" value="Sea or lake view"> Sea or lake view</label>
+          <label class="check"><input type="checkbox" name="features[]" value="En-suite"> En-suite</label>
+          <label class="check"><input type="checkbox" name="features[]" value="Parking space"> Parking space</label>
+          <label class="check"><input type="checkbox" name="features[]" value="Sold furnished"> Sold furnished</label>
+          <label class="check"><input type="checkbox" name="features[]" value="Hot tub"> Hot tub</label>
+        </div>
+      </div>
+      <div class="field">
+        <label for="description">Description</label>
+        <span class="hint" id="desc-hint">Condition, recent work, what’s included, and why you’re selling. Buyers like detail.</span>
+        <textarea id="description" name="description" required minlength="80" aria-describedby="desc-hint"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>The park and pitch</legend>
+      <div class="field-row">
+        <div class="field"><label for="park">Park name</label><input id="park" name="park" type="text" required></div>
+        <div class="field"><label for="town">Nearest town</label><input id="town" name="town" type="text" required></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="county">County</label><input id="county" name="county" type="text" required></div>
+        <div class="field"><label for="region">Region</label><select id="region" name="region" data-regions required><option value="">Choose a region</option></select></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="fees">Site fees per year (£)</label><input id="fees" name="site_fees" type="number" min="0" inputmode="numeric"></div>
+        <div class="field"><label for="season">Season length</label>
+          <select id="season" name="season_months">
+            <option value="">Not sure</option><option>8</option><option>9</option><option>10</option><option>10.5</option><option>11</option><option value="12">12 months</option>
+          </select>
+        </div>
+        <div class="field"><label for="pets">Pets</label>
+          <select id="pets" name="pets"><option value="">Not sure</option><option>Allowed</option><option>Not allowed</option></select>
+        </div>
+      </div>
+      <div class="field">
+        <span class="label">Is the home on a pitch?</span>
+        <label class="check"><input type="radio" name="sited" value="On a pitch, can stay" required> Yes, and the buyer can keep the pitch (subject to the park’s approval)</label>
+        <label class="check"><input type="radio" name="sited" value="On a pitch, must move"> Yes, but it must be moved off the park</label>
+        <label class="check"><input type="radio" name="sited" value="Off site"> No, it’s off site</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Price and photos</legend>
+      <div class="field-row">
+        <div class="field"><label for="price">Asking price (£)</label><input id="price" name="price" type="number" min="500" step="50" required inputmode="numeric"></div>
+      </div>
+      <p class="hint">Up to six photos, JPG or PNG. Keep the total under 8MB — photos straight from a phone are usually 2–4MB each, so you may need to send three now and email the rest.</p>
+      <div class="field-row">
+        <div class="field"><label for="p1">Main photo</label><input id="p1" name="photo_1" type="file" accept="image/jpeg,image/png,image/webp" required></div>
+        <div class="field"><label for="p2">Photo 2</label><input id="p2" name="photo_2" type="file" accept="image/jpeg,image/png,image/webp"></div>
+        <div class="field"><label for="p3">Photo 3</label><input id="p3" name="photo_3" type="file" accept="image/jpeg,image/png,image/webp"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="p4">Photo 4</label><input id="p4" name="photo_4" type="file" accept="image/jpeg,image/png,image/webp"></div>
+        <div class="field"><label for="p5">Photo 5</label><input id="p5" name="photo_5" type="file" accept="image/jpeg,image/png,image/webp"></div>
+        <div class="field"><label for="p6">Photo 6</label><input id="p6" name="photo_6" type="file" accept="image/jpeg,image/png,image/webp"></div>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Your details</legend>
+      <p class="hint">Your email is never shown on the advert. We forward buyers’ enquiries to you.</p>
+      <div class="field-row">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" required autocomplete="name"></div>
+        <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" required autocomplete="email"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label for="phone">Phone <span class="hint">Optional</span></label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+      </div>
+      <label class="check"><input type="checkbox" name="show_phone" value="yes"> Show my phone number on the advert</label>
+      <label class="check"><input type="checkbox" name="confirm_private" value="yes" required> I own this holiday home and I’m selling it privately, not as a business</label>
+      <label class="check"><input type="checkbox" name="accept_terms" value="yes" required> I agree to the <a href="/terms/" target="_blank">advertising terms</a> and <a href="/privacy/" target="_blank">privacy notice</a></label>
+    </fieldset>
+
+    <button class="btn btn--sun" type="submit">Send my free advert</button>
+    <p class="form-status form-error" role="alert"></p>
+  </form>
+
+  <aside>
+    <div class="panel">
+      <h2 class="listing__title">What happens next</h2>
+      <p>We read every advert before it goes live, normally within one working day. We’ll email you when it’s published, or if we need anything else.</p>
+      <p>Your advert stays up until you tell us it’s sold. To change the price or details, reply to our email.</p>
+    </div>
+    <div class="panel panel--white" style="margin-top:1.25rem">
+      <h2 class="listing__title">Adverts that sell</h2>
+      <ul class="ticks">
+        <li>A bright outside photo first</li>
+        <li>Site fees and season length stated</li>
+        <li>How many years the park allows</li>
+        <li>Honest about any wear</li>
+      </ul>
+    </div>
+  </aside>
+</div>

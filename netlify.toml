@@ -1,0 +1,61 @@
+[build]
+  command = "node build.js"
+  publish = "public"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Security headers for every page
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "SAMEORIGIN"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/data/*"
+  [headers.values]
+    Cache-Control = "public, max-age=300"
+
+# Keep confirmation pages out of search results
+[[headers]]
+  for = "/thanks/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+[[headers]]
+  for = "/trade-received/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+[[headers]]
+  for = "/trade-paid/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+[[headers]]
+  for = "/enquiry-sent/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+[[headers]]
+  for = "/message-sent/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
+
+# Friendly short links
+[[redirects]]
+  from = "/caravans"
+  to = "/browse/?type=caravan"
+  status = 301
+[[redirects]]
+  from = "/lodges"
+  to = "/browse/?type=lodge"
+  status = 301
+[[redirects]]
+  from = "/advertise"
+  to = "/sell/"
+  status = 301

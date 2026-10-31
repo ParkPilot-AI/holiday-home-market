@@ -1,0 +1,42 @@
+<div class="wrap">
+  <p class="listing__crumbs"><a href="/browse/">Homes for sale</a> / {{location}}</p>
+  {{statusBanner}}
+  <div class="listing">
+    <div>
+      <div class="gallery__main"><img id="gallery-main" src="{{mainImage}}" alt="{{mainAlt}}"></div>
+      <div class="gallery__thumbs">{{gallery}}</div>
+      <dl class="specs">{{specs}}</dl>
+      <h2>About this home</h2>
+      <div class="prose">{{description}}</div>
+      {{features}}
+      <p class="card__meta">Advert reference {{ref}}. Listed {{listed}}.</p>
+    </div>
+    <aside class="listing__aside">
+      <div class="panel">
+        {{sellerBadge}}
+        <h1 class="listing__title">{{title}}</h1>
+        <p class="listing__price">{{price}}</p>
+        <p class="card__meta">{{location}}</p>
+      </div>
+      <div class="panel panel--white">
+        <h2 class="listing__title">Contact the seller</h2>
+        <p class="card__meta">{{sellerLabel}}</p>
+        {{phone}}
+        <form name="enquiry" method="POST" data-netlify="true" netlify-honeypot="company_website" data-netlify-ajax data-next="/enquiry-sent/">
+          <input type="hidden" name="form-name" value="enquiry">
+          <input type="hidden" name="listing_ref" value="{{ref}}">
+          <input type="hidden" name="listing_title" value="{{title}}">
+          <input type="hidden" name="reference">
+          <p class="hidden-field"><label>Leave this empty <input name="company_website"></label></p>
+          <div class="field"><label for="e-name">Your name</label><input id="e-name" name="name" type="text" required autocomplete="name"></div>
+          <div class="field"><label for="e-email">Email</label><input id="e-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="e-phone">Phone <span class="hint">Optional</span></label><input id="e-phone" name="phone" type="tel" autocomplete="tel"></div>
+          <div class="field"><label for="e-msg">Message</label><textarea id="e-msg" name="message" required>Hello, I’m interested in your holiday home. Is it still available?</textarea></div>
+          <button class="btn btn--wide" type="submit">Send enquiry</button>
+          <p class="form-status form-error" role="alert"></p>
+        </form>
+        <p class="hint">Never pay a deposit before viewing the home and confirming the pitch with the park. <a href="/safety/">Buying safely</a></p>
+      </div>
+    </aside>
+  </div>
+</div>

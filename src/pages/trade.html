@@ -1,0 +1,86 @@
+<!--title: Trade advertising for dealers and parks — £5 per listing-->
+<!--description: List static caravans and lodges for sale as a dealer or holiday park. £5 per listing, no contract, no monthly fee.-->
+<!--nav: trade-->
+<div class="page-head">
+  <div class="wrap">
+    <h1>Trade advertising</h1>
+    <p>For dealers, holiday parks and anyone selling holiday homes as a business. £5 per home, paid once. Your listing stays live until the home sells.</p>
+  </div>
+</div>
+<div class="wrap form-layout">
+  <div>
+    <table class="price-table">
+      <caption class="visually-hidden">What a trade listing includes</caption>
+      <thead><tr><th scope="col">Included in every £5 listing</th><th scope="col">Details</th></tr></thead>
+      <tbody>
+        <tr><td>Your business name</td><td>Shown on the advert with a Trade badge, so buyers know who they’re dealing with</td></tr>
+        <tr><td>Up to 12 photos</td><td>Send them with the form, or email a link to a shared folder</td></tr>
+        <tr><td>Listed until sold</td><td>No renewal fee. Tell us when it sells and we’ll mark it as sold</td></tr>
+        <tr><td>Your phone number</td><td>Shown on the advert, plus buyer enquiries forwarded to your email</td></tr>
+        <tr><td>Changes at no cost</td><td>Price drops and edits are free for the life of the listing</td></tr>
+      </tbody>
+    </table>
+
+    <form name="trade-advert" method="POST" data-netlify="true" netlify-honeypot="company_website" enctype="multipart/form-data" data-netlify-ajax data-payment="trade" data-next="/trade-received/">
+      <input type="hidden" name="form-name" value="trade-advert">
+      <input type="hidden" name="reference">
+      <p class="hidden-field"><label>Leave this empty <input name="company_website"></label></p>
+
+      <fieldset>
+        <legend>Your business</legend>
+        <div class="field-row">
+          <div class="field"><label for="business">Business name</label><input id="business" name="business_name" type="text" required autocomplete="organization"></div>
+          <div class="field"><label for="contact">Contact name</label><input id="contact" name="contact_name" type="text" required autocomplete="name"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="t-email">Email</label><input id="t-email" name="email" type="email" required autocomplete="email"></div>
+          <div class="field"><label for="t-phone">Phone shown on adverts</label><input id="t-phone" name="phone" type="tel" required autocomplete="tel"></div>
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="website">Website <span class="hint">Optional</span></label><input id="website" name="website" type="url" placeholder="https://"></div>
+          <div class="field"><label for="address">Business address</label><input id="address" name="address" type="text" required autocomplete="street-address"></div>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Your listings</legend>
+        <div class="field-row">
+          <div class="field"><label for="listing_count">Number of homes to list</label><input id="listing_count" name="listing_count" type="number" min="1" max="200" value="1" required inputmode="numeric"></div>
+        </div>
+        <div class="field">
+          <label for="homes">Details of each home</label>
+          <span class="hint" id="homes-hint">For each home: caravan or lodge, make, model, year, size, bedrooms, park, price, site fees and a short description. A link to the home on your own website is fine.</span>
+          <textarea id="homes" name="homes" required aria-describedby="homes-hint" style="min-height:14rem"></textarea>
+        </div>
+        <div class="field">
+          <label for="photos_link">Link to photos <span class="hint">Google Drive, Dropbox or your website</span></label>
+          <input id="photos_link" name="photos_link" type="url" placeholder="https://">
+        </div>
+        <div class="field-row">
+          <div class="field"><label for="tp1">Or attach a photo</label><input id="tp1" name="photo_1" type="file" accept="image/jpeg,image/png,image/webp"></div>
+          <div class="field"><label for="tp2">Photo 2</label><input id="tp2" name="photo_2" type="file" accept="image/jpeg,image/png,image/webp"></div>
+          <div class="field"><label for="tp3">Photo 3</label><input id="tp3" name="photo_3" type="file" accept="image/jpeg,image/png,image/webp"></div>
+        </div>
+        <label class="check"><input type="checkbox" name="accept_terms" value="yes" required> I agree to the <a href="/terms/" target="_blank">advertising terms</a>, and confirm the business has the right to sell these homes</label>
+      </fieldset>
+
+      <div class="panel">
+        <div class="total"><span>Total to pay</span><span id="trade-total">£5</span></div>
+        <p id="payment-note" class="hint"></p>
+        <button class="btn btn--wide" type="submit">Send details and pay</button>
+        <p class="form-status form-error" role="alert"></p>
+      </div>
+    </form>
+  </div>
+  <aside>
+    <div class="offer offer--trade">
+      <h2>£5 a home</h2>
+      <p>No account, no subscription and no commission on the sale. Pay for what you list.</p>
+      <p>Prices include VAT where applicable. You’ll get an emailed receipt.</p>
+    </div>
+    <div class="panel panel--white" style="margin-top:1.25rem">
+      <h2 class="listing__title">Listing lots of homes?</h2>
+      <p>Send us a spreadsheet or a stock feed link and we’ll load them for you. Email <a href="mailto:hello@holidayhomemarket.co.uk">hello@holidayhomemarket.co.uk</a>.</p>
+    </div>
+  </aside>
+</div>
